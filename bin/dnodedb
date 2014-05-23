@@ -1,0 +1,14 @@
+#!/usr/bin/env node
+
+// simple levy server
+// usage
+// levy [PORT] --secret=[secret] --db=[dbname]
+
+var minimist = require('minimist');
+var argv = minimist(process.argv.slice(2));
+var levy = require('../').server;
+
+
+levy(argv.db || 'default',
+  argv.secret)
+  .listen(argv._[0]);
