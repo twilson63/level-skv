@@ -8,9 +8,11 @@ test('basic server functions', function(t) {
     db.put('hello1', {foo: 'bar'});
     db.get('hello1', function(e, result) {
       t.equals(result.foo, 'bar');
+    });
+    db.del('hello1', function(e, res) {
+      console.log(res);
       t.end();
       process.nextTick(function() { process.exit(0); });
     });
-
   });
 });

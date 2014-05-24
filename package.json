@@ -11,7 +11,7 @@
     "dnode"
   ],
   "bin": {
-    "dnodedb": "bin/dnodedb"
+    "skv": "bin/skv"
   },
   "author": "Tom",
   "license": "MIT",

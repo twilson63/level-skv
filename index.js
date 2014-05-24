@@ -11,18 +11,28 @@ module.exports = function(dbi, code) {
     get: function (key, cb) {
       emitter.emit('log', {action: 'get', key: key});
       dbi.get(key, function (e, o) {
-        if (e) { console.log(e); if (cb) cb(e); return; }
+        if (e) {
+          emitter.emit('log', {
+            action: 'get',
+            key: key,
+            status: 'error',
+            message: e.msg});
+          }
+          if (cb) cb(e); return; }
         var result = JSON.parse(o);
         if (cb) cb(null, result);
       });
     },
     put: function (key, value, cb) {
-      emitter.emit('log', { action: 'put', key: key});
+      var tx = { date: (new Date()).toString(), action: 'put', key: key, value: value};
       if (_(value).isObject()) value = JSON.stringify(value);
-      dbi.put(key, value, function(e, r) {
-        if (e) { console.log(e); if (cb) cb(e); return; }
-        if(cb) cb(null, r);
+      dbi.put(key, value, function(err, res) {
+
       });
+    },
+    del: function (key, cb) {
+      emitter.emit('log', { action: 'del', key: key});
+      dbi.del(key, cb);
     }
   };
   var auth = {
