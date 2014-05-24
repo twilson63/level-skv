@@ -1,5 +1,7 @@
 # level-skv
 
+[![Build Status](https://secure.travis-ci.org/twilson63/level-skv.png)](http://travis-ci.org/twilson63/level-skv)
+
 Simple Key Value DataStore Server
 
 This is a wrapper around levelup using upnode as the server interface.  upnode is a lightweight rpc protocol that has the ability to queue up requests if either side is down for a period of time, then sends the requests with the other end comes back up.  

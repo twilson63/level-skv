@@ -2,22 +2,22 @@
 
 // simple key value server
 // usage
-// skv [PORT] --secret=[secret] --db=[dbname]
+// skv [PORT] --secret=[secret] --db=[dbname] --debug
 
 var minimist = require('minimist');
 var argv = minimist(process.argv.slice(2));
 var kv = require('../');
-var _ = require('underscore');
 
 var svr = kv(argv.db || 'default', argv.secret);
-svr.listen(argv._[0]);
+svr.listen(argv._[0] || 4321);
 if (argv.debug) {
   console.log({
     date: (new Date()).toString(),
-    action: 'listening'
+    action: 'listening',
+    port: argv._[0] || 4321
   });
   svr.emitter.on('log', function(log) {
-   _(log).extend({ date: (new Date()).toString() });
+   log.date = (new Date()).toString();
    console.log(log);
   });
 }

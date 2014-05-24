@@ -1,8 +1,6 @@
 var upnode = require('upnode');
 var db = require('levelup');
 var EventEmitter = require('events').EventEmitter;
-var async = require('async');
-var _ = require('underscore');
 
 module.exports = function(dbi, code) {
   if (typeof dbi === 'string') { dbi = db(dbi, { valueEncoding: 'json' }); }
@@ -32,7 +30,8 @@ module.exports = function(dbi, code) {
         var tx = {key: key, value: value};
         if (err) { if (cb) cb(err); return; }
         log('put')(tx);
-        emitter.emit('change', _(tx).extend({action: 'put'}));
+        tx.action = 'put';
+        emitter.emit('change', tx);
         if (cb) cb(null, tx);
       });
     },
@@ -41,7 +40,8 @@ module.exports = function(dbi, code) {
         var tx = { key: key };
         if (err) { if (cb) cb(err); return; }
         log('del')(tx);
-        emitter.emit('change', _(tx).extend({action: 'del'}));
+        tx.action = 'del';
+        emitter.emit('change', tx);
         if (cb) cb(null, key);
       });
     },
