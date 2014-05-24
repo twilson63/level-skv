@@ -1,6 +1,6 @@
 {
   "name": "skv",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Basic LevelDb functionality implemented over dnode",
   "main": "index.js",
   "scripts": {
