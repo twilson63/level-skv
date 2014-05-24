@@ -1,5 +1,5 @@
 {
-  "name": "dnodedb",
+  "name": "skv",
   "version": "0.0.1",
   "description": "Basic LevelDb functionality implemented over dnode",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "keywords": [
     "leveldb",
-    "dnode"
+    "upnode"
   ],
   "bin": {
     "skv": "bin/skv"
@@ -20,8 +20,7 @@
     "leveldown": "^0.10.2",
     "underscore": "^1.6.0",
     "minimist": "^0.1.0",
-    "upnode": "^0.4.3",
-    "q": "^1.0.1"
+    "upnode": "^0.4.3"
   },
   "devDependencies": {
     "tap": "^0.4.9"
