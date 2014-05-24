@@ -1,19 +1,16 @@
-var dnodeServer = require('../').server;
-var dnodeClient = require('../').client;
+var test = require('tap').test;
+var kv = require('../');
+var client = require('upnode');
 
-var server = dnodeServer('foo');
-server.listen(8080);
-
-var client, remote;
-
-
-dnodeClient(8080, function (r, c) {
-  remote = r;
-  client = c;
-
-  remote.put('foo', { "key": "value"}, function (err) {
-    remote.get('foo', function (e,v) {
-      console.log(v);
+test('basic server functions', function(t) {
+  kv('default').listen(8000);
+  client.connect(8000, function(db) {
+    db.put('hello1', {foo: 'bar'});
+    db.get('hello1', function(e, result) {
+      t.equals(result.foo, 'bar');
+      t.end();
+      process.nextTick(function() { process.exit(0); });
     });
+
   });
 });
