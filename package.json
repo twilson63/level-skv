@@ -20,7 +20,8 @@
     "leveldown": "^0.10.2",
     "underscore": "^1.6.0",
     "minimist": "^0.1.0",
-    "upnode": "^0.4.3"
+    "upnode": "^0.4.3",
+    "async": "^0.9.0"
   },
   "devDependencies": {
     "tap": "^0.4.9"

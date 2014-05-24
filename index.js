@@ -1,42 +1,52 @@
 var upnode = require('upnode');
 var db = require('levelup');
 var EventEmitter = require('events').EventEmitter;
+var async = require('async');
 var _ = require('underscore');
 
-
 module.exports = function(dbi, code) {
-  if (typeof dbi === 'string') { dbi = db(dbi); }
+  if (typeof dbi === 'string') { dbi = db(dbi, { valueEncoding: 'json' }); }
   var emitter = new EventEmitter();
+
+  var log = function(action) {
+    return function (data, cb) {
+      emitter.emit('log', {
+        action: action,
+        data: data,
+        date: (new Date()).toString()
+      });
+      if (cb) cb(null, value);
+    };
+  }
+
   var cmds = {
     get: function (key, cb) {
-      emitter.emit('log', {action: 'get', key: key});
-      dbi.get(key, function (e, o) {
-        if (e) {
-          emitter.emit('log', {
-            action: 'get',
-            key: key,
-            status: 'error',
-            message: e.msg});
-          if (cb) cb(e); return;
-        }
-        var result = JSON.parse(o);
-        if (cb) cb(null, result);
-      });
+      dbi.get(key, function(err, value) {
+        if (err) { if (cb) cb(err); return; }
+        log('get')({key: key, value: value});
+        if (cb) cb(null, value);
+      })
     },
     put: function (key, value, cb) {
-      var tx = { date: (new Date()).toString(), action: 'put', key: key, value: value};
-      if (_(value).isObject()) value = JSON.stringify(value);
-      dbi.put(key, value, function(err, res) {
-        if (err) {
-          _(tx).extend({status: 'error', message: err.message });
-          emitter.emit('log', tx);
-        }
+      dbi.put(key, value, function(err) {
+        var tx = {key: key, value: value};
+        if (err) { if (cb) cb(err); return; }
+        log('put')(tx);
+        emitter.emit('change', _(tx).extend({action: 'put'}));
         if (cb) cb(null, tx);
       });
     },
     del: function (key, cb) {
-      emitter.emit('log', { action: 'del', key: key});
-      dbi.del(key, cb);
+      dbi.del(key, function (err) {
+        var tx = { key: key };
+        if (err) { if (cb) cb(err); return; }
+        log('del')(tx);
+        emitter.emit('change', _(tx).extend({action: 'del'}));
+        if (cb) cb(null, key);
+      });
+    },
+    change: function (fn) {
+      emitter.on('change', fn);
     }
   };
   var auth = {
