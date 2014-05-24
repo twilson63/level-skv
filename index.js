@@ -17,8 +17,8 @@ module.exports = function(dbi, code) {
             key: key,
             status: 'error',
             message: e.msg});
-          }
-          if (cb) cb(e); return; }
+          if (cb) cb(e); return;
+        }
         var result = JSON.parse(o);
         if (cb) cb(null, result);
       });
@@ -27,7 +27,11 @@ module.exports = function(dbi, code) {
       var tx = { date: (new Date()).toString(), action: 'put', key: key, value: value};
       if (_(value).isObject()) value = JSON.stringify(value);
       dbi.put(key, value, function(err, res) {
-
+        if (err) {
+          _(tx).extend({status: 'error', message: err.message });
+          emitter.emit('log', tx);
+        }
+        if (cb) cb(null, tx);
       });
     },
     del: function (key, cb) {
