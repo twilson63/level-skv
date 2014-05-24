@@ -1,0 +1,139 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'publish' ]
+2 info using npm@1.4.3
+3 info using node@v0.10.26
+4 verbose publish [ '.' ]
+5 verbose cache add [ '.', null ]
+6 verbose cache add name=undefined spec="." args=[".",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: '.',
+7 verbose parsed url   path: '.',
+7 verbose parsed url   href: '.' }
+8 silly lockFile 3a52ce78- .
+9 verbose lock . /home/twilson63/.npm/3a52ce78-.lock
+10 verbose tar pack [ '/home/twilson63/tmp/npm-7361-DeKGVBnJ/1400944036640-0.33791792020201683/tmp.tgz',
+10 verbose tar pack   '.' ]
+11 verbose tarball /home/twilson63/tmp/npm-7361-DeKGVBnJ/1400944036640-0.33791792020201683/tmp.tgz
+12 verbose folder .
+13 info prepublish skv@0.0.2
+14 silly lockFile 1f1177db-tar tar://.
+15 verbose lock tar://. /home/twilson63/.npm/1f1177db-tar.lock
+16 silly lockFile 9388c69b-6640-0-33791792020201683-tmp-tgz tar:///home/twilson63/tmp/npm-7361-DeKGVBnJ/1400944036640-0.33791792020201683/tmp.tgz
+17 verbose lock tar:///home/twilson63/tmp/npm-7361-DeKGVBnJ/1400944036640-0.33791792020201683/tmp.tgz /home/twilson63/.npm/9388c69b-6640-0-33791792020201683-tmp-tgz.lock
+18 silly lockFile 1f1177db-tar tar://.
+19 silly lockFile 1f1177db-tar tar://.
+20 silly lockFile 9388c69b-6640-0-33791792020201683-tmp-tgz tar:///home/twilson63/tmp/npm-7361-DeKGVBnJ/1400944036640-0.33791792020201683/tmp.tgz
+21 silly lockFile 9388c69b-6640-0-33791792020201683-tmp-tgz tar:///home/twilson63/tmp/npm-7361-DeKGVBnJ/1400944036640-0.33791792020201683/tmp.tgz
+22 verbose tar unpack /home/twilson63/tmp/npm-7361-DeKGVBnJ/1400944036640-0.33791792020201683/tmp.tgz
+23 silly lockFile b42de91a-6640-0-33791792020201683-package tar:///home/twilson63/tmp/npm-7361-DeKGVBnJ/1400944036640-0.33791792020201683/package
+24 verbose lock tar:///home/twilson63/tmp/npm-7361-DeKGVBnJ/1400944036640-0.33791792020201683/package /home/twilson63/.npm/b42de91a-6640-0-33791792020201683-package.lock
+25 silly lockFile 9388c69b-6640-0-33791792020201683-tmp-tgz tar:///home/twilson63/tmp/npm-7361-DeKGVBnJ/1400944036640-0.33791792020201683/tmp.tgz
+26 verbose lock tar:///home/twilson63/tmp/npm-7361-DeKGVBnJ/1400944036640-0.33791792020201683/tmp.tgz /home/twilson63/.npm/9388c69b-6640-0-33791792020201683-tmp-tgz.lock
+27 silly gunzTarPerm modes [ '755', '644' ]
+28 silly gunzTarPerm extractEntry package.json
+29 silly gunzTarPerm extractEntry .npmignore
+30 silly gunzTarPerm extractEntry README.md
+31 silly gunzTarPerm extractEntry index.js
+32 silly gunzTarPerm extractEntry .travis.yml
+33 silly gunzTarPerm extractEntry bin/skv
+34 silly gunzTarPerm extractEntry test/index_test.js
+35 silly gunzTarPerm extractEntry test/secret_test.js
+36 silly lockFile b42de91a-6640-0-33791792020201683-package tar:///home/twilson63/tmp/npm-7361-DeKGVBnJ/1400944036640-0.33791792020201683/package
+37 silly lockFile b42de91a-6640-0-33791792020201683-package tar:///home/twilson63/tmp/npm-7361-DeKGVBnJ/1400944036640-0.33791792020201683/package
+38 silly lockFile 9388c69b-6640-0-33791792020201683-tmp-tgz tar:///home/twilson63/tmp/npm-7361-DeKGVBnJ/1400944036640-0.33791792020201683/tmp.tgz
+39 silly lockFile 9388c69b-6640-0-33791792020201683-tmp-tgz tar:///home/twilson63/tmp/npm-7361-DeKGVBnJ/1400944036640-0.33791792020201683/tmp.tgz
+40 verbose tar pack [ '/home/twilson63/.npm/skv/0.0.2/package.tgz',
+40 verbose tar pack   '/home/twilson63/tmp/npm-7361-DeKGVBnJ/1400944036640-0.33791792020201683/package' ]
+41 verbose tarball /home/twilson63/.npm/skv/0.0.2/package.tgz
+42 verbose folder /home/twilson63/tmp/npm-7361-DeKGVBnJ/1400944036640-0.33791792020201683/package
+43 silly lockFile b42de91a-6640-0-33791792020201683-package tar:///home/twilson63/tmp/npm-7361-DeKGVBnJ/1400944036640-0.33791792020201683/package
+44 verbose lock tar:///home/twilson63/tmp/npm-7361-DeKGVBnJ/1400944036640-0.33791792020201683/package /home/twilson63/.npm/b42de91a-6640-0-33791792020201683-package.lock
+45 silly lockFile eaebbd40-lson63-npm-skv-0-0-2-package-tgz tar:///home/twilson63/.npm/skv/0.0.2/package.tgz
+46 verbose lock tar:///home/twilson63/.npm/skv/0.0.2/package.tgz /home/twilson63/.npm/eaebbd40-lson63-npm-skv-0-0-2-package-tgz.lock
+47 silly lockFile b42de91a-6640-0-33791792020201683-package tar:///home/twilson63/tmp/npm-7361-DeKGVBnJ/1400944036640-0.33791792020201683/package
+48 silly lockFile b42de91a-6640-0-33791792020201683-package tar:///home/twilson63/tmp/npm-7361-DeKGVBnJ/1400944036640-0.33791792020201683/package
+49 silly lockFile eaebbd40-lson63-npm-skv-0-0-2-package-tgz tar:///home/twilson63/.npm/skv/0.0.2/package.tgz
+50 silly lockFile eaebbd40-lson63-npm-skv-0-0-2-package-tgz tar:///home/twilson63/.npm/skv/0.0.2/package.tgz
+51 silly lockFile c64c225e--twilson63-npm-skv-0-0-2-package /home/twilson63/.npm/skv/0.0.2/package
+52 verbose lock /home/twilson63/.npm/skv/0.0.2/package /home/twilson63/.npm/c64c225e--twilson63-npm-skv-0-0-2-package.lock
+53 silly lockFile c64c225e--twilson63-npm-skv-0-0-2-package /home/twilson63/.npm/skv/0.0.2/package
+54 silly lockFile c64c225e--twilson63-npm-skv-0-0-2-package /home/twilson63/.npm/skv/0.0.2/package
+55 verbose tar unpack /home/twilson63/.npm/skv/0.0.2/package.tgz
+56 silly lockFile 9097f6ce--twilson63-npm-skv-0-0-2-package tar:///home/twilson63/.npm/skv/0.0.2/package
+57 verbose lock tar:///home/twilson63/.npm/skv/0.0.2/package /home/twilson63/.npm/9097f6ce--twilson63-npm-skv-0-0-2-package.lock
+58 silly lockFile eaebbd40-lson63-npm-skv-0-0-2-package-tgz tar:///home/twilson63/.npm/skv/0.0.2/package.tgz
+59 verbose lock tar:///home/twilson63/.npm/skv/0.0.2/package.tgz /home/twilson63/.npm/eaebbd40-lson63-npm-skv-0-0-2-package-tgz.lock
+60 silly gunzTarPerm modes [ '755', '644' ]
+61 silly gunzTarPerm extractEntry package.json
+62 silly gunzTarPerm extractEntry .npmignore
+63 silly gunzTarPerm extractEntry README.md
+64 silly gunzTarPerm extractEntry index.js
+65 silly gunzTarPerm extractEntry .travis.yml
+66 silly gunzTarPerm extractEntry bin/skv
+67 silly gunzTarPerm extractEntry test/index_test.js
+68 silly gunzTarPerm extractEntry test/secret_test.js
+69 silly lockFile 9097f6ce--twilson63-npm-skv-0-0-2-package tar:///home/twilson63/.npm/skv/0.0.2/package
+70 silly lockFile 9097f6ce--twilson63-npm-skv-0-0-2-package tar:///home/twilson63/.npm/skv/0.0.2/package
+71 silly lockFile eaebbd40-lson63-npm-skv-0-0-2-package-tgz tar:///home/twilson63/.npm/skv/0.0.2/package.tgz
+72 silly lockFile eaebbd40-lson63-npm-skv-0-0-2-package-tgz tar:///home/twilson63/.npm/skv/0.0.2/package.tgz
+73 verbose chmod /home/twilson63/.npm/skv/0.0.2/package.tgz 644
+74 verbose chown /home/twilson63/.npm/skv/0.0.2/package.tgz [ 1000, 1000 ]
+75 silly lockFile 3a52ce78- .
+76 silly lockFile 3a52ce78- .
+77 silly publish { name: 'skv',
+77 silly publish   version: '0.0.2',
+77 silly publish   description: 'Basic LevelDb functionality implemented over dnode',
+77 silly publish   main: 'index.js',
+77 silly publish   scripts: { test: 'tap test/*_test.js' },
+77 silly publish   keywords: [ 'leveldb', 'upnode' ],
+77 silly publish   bin: { skv: 'bin/skv' },
+77 silly publish   author: { name: 'Tom' },
+77 silly publish   license: 'MIT',
+77 silly publish   dependencies:
+77 silly publish    { levelup: '^0.18.3',
+77 silly publish      leveldown: '^0.10.2',
+77 silly publish      underscore: '^1.6.0',
+77 silly publish      minimist: '^0.1.0',
+77 silly publish      upnode: '^0.4.3' },
+77 silly publish   devDependencies: { tap: '^0.4.9' },
+77 silly publish   readme: '# level-skv\n\nSimple Key Value DataStore Server\n\nThis is a wrapper around levelup using upnode as the server interface.  upnode is a lightweight rpc protocol that has the ability to queue up requests if either side is down for a period of time, then sends the requests with the other end comes back up.  \n\n## server example\n\n``` sh\nnpm install skv -g\nskv 4321 --dbname=foo --secret=bar --debug=true\n```\n\n## client example\n\n``` js\nvar client = require(\'upnode\');\nclient.connect(4321, function (remote) {\n  remote.auth(\'foo\', function (db) {\n    db.put(\'hello\', {foo: \'bar\'});\n    db.get(\'hello\', function(err, doc) {\n      console.log(doc);\n    });\n    db.del(\'hello\');\n  });\n});\n```\n\n## Status\n\nStill in development mode\n\n\n## Test\n\n```\nnpm test\n```\n',
+77 silly publish   readmeFilename: 'README.md',
+77 silly publish   _id: 'skv@0.0.2',
+77 silly publish   dist: { shasum: '876a7bf2892777bd64da0519c1f928f751a02f18' },
+77 silly publish   _from: '.' }
+78 verbose url raw skv
+79 verbose url resolving [ 'https://registry.npmjs.org/', './skv' ]
+80 verbose url resolved https://registry.npmjs.org/skv
+81 info trying registry request attempt 1 at 11:07:16
+82 http PUT https://registry.npmjs.org/skv
+83 http 403 https://registry.npmjs.org/skv
+84 error publish Failed PUT 403
+85 error Error: forbidden cannot modify pre-existing version: 0.0.2
+85 error old={"name":"skv","version":"0.0.2","description":"Basic LevelDb functionality implemented over dnode","main":"index.js","scripts":{"test":"tap test/*_test.js"},"keywords":["leveldb","upnode"],"bin":{"skv":"bin/skv"},"author":{"name":"Tom"},"license":"MIT","dependencies":{"levelup":"^0.18.3","leveldown":"^0.10.2","underscore":"^1.6.0","minimist":"^0.1.0","upnode":"^0.4.3"},"devDependencies":{"tap":"^0.4.9"},"_id":"skv@0.0.2","dist":{"shasum":"876a7bf2892777bd64da0519c1f928f751a02f18","tarball":"http://registry.npmjs.org/skv/-/skv-0.0.2.tgz"},"_from":".","_npmVersion":"1.4.3","_npmUser":{"name":"twilson63","email":"tom@jackhq.com"},"maintainers":[{"name":"twilson63","email":"tom@jackhq.com"}]}
+85 error new={"name":"skv","version":"0.0.2","description":"Basic LevelDb functionality implemented over dnode","main":"index.js","scripts":{"test":"tap test/*_test.js"},"keywords":["leveldb","upnode"],"bin":{"skv":"bin/skv"},"author":{"name":"Tom"},"license":"MIT","dependencies":{"levelup":"^0.18.3","leveldown":"^0.10.2","underscore":"^1.6.0","minimist":"^0.1.0","upnode":"^0.4.3"},"devDependencies":{"tap":"^0.4.9"},"readme":"# level-skv\u000a\u000aSimple Key Value DataStore Server\u000a\u000aThis is a wrapper around levelup using upnode as the server interface.  upnode is a lightweight rpc protocol that has the ability to queue up requests if either side is down for a period of time, then sends the requests with the other end comes back up.  \u000a\u000a## server example\u000a\u000a``` sh\u000anpm install skv -g\u000askv 4321 --dbname=foo --secret=bar --debug=true\u000a```\u000a\u000a## client example\u000a\u000a``` js\u000avar client = require('upnode');\u000aclient.connect(4321, function (remote) {\u000a  remote.auth('foo', function (db) {\u000a    db.put('hello', {foo: 'bar'});\u000a    db.get('hello', function(err, doc) {\u000a      console.log(doc);\u000a    });\u000a    db.del('hello');\u000a  });\u000a});\u000a```\u000a\u000a## Status\u000a\u000aStill in development mode\u000a\u000a\u000a## Test\u000a\u000a```\u000anpm test\u000a```\u000a","readmeFilename":"README.md","_id":"skv@0.0.2","dist":{"shasum":"876a7bf2892777bd64da0519c1f928f751a02f18","tarball":"http://registry.npmjs.org/skv/-/skv-0.0.2.tgz"},"_from":".","_npmVersion":"1.4.3","_npmUser":{"name":"twilson63","email":"tom@jackhq.com"},"maintainers":[{"name":"twilson63","email":"tom@jackhq.com"}]}: skv
+85 error     at RegClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:237:14)
+85 error     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:123:22)
+85 error     at Request.EventEmitter.emit (events.js:98:17)
+85 error     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:893:14)
+85 error     at Request.EventEmitter.emit (events.js:117:20)
+85 error     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:844:12)
+85 error     at IncomingMessage.EventEmitter.emit (events.js:117:20)
+85 error     at _stream_readable.js:920:16
+85 error     at process._tickCallback (node.js:415:13)
+86 error If you need help, you may report this *entire* log,
+86 error including the npm and node versions, at:
+86 error     <http://github.com/npm/npm/issues>
+87 error System Linux 3.11.0-18-generic
+88 error command "/usr/local/bin/node" "/usr/local/bin/npm" "publish"
+89 error cwd /home/twilson63/lab/level-kv
+90 error node -v v0.10.26
+91 error npm -v 1.4.3
+92 verbose exit [ 1, true ]

@@ -26,6 +26,15 @@ client.connect(4321, function (remote) {
 });
 ```
 
+## Try the REPL
+
+``` js
+cd repl
+./skv-client --port=48937 --secret=foo
+
+```
+
+
 ## Status
 
 Still in development mode

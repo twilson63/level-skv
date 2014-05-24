@@ -1,0 +1,27 @@
+#!/usr/bin/env node
+
+var minimist = require('minimist');
+var repl = require('repl');
+var client = require('upnode');
+
+var argv = minimist(process.argv.slice(2));
+if (!argv.port) { 
+  console.log('--port=XXX is required!'); 
+  console.log('./skv-client --port=5000 --secret=foo');
+  process.exit(0);
+}
+
+if (!argv.secret) {
+  console.log('--secret is required');
+  console.log('./skv-client --secret=foo --port=5000');
+  process.exit(0);
+}
+
+client.connect(argv, function (remote) {
+  remote.auth(argv.secret, function(err, db) {
+    var con = repl.start('skv> ')
+    con.context.db = db;
+    con.context.bye = function() { process.exit(0); };
+  });
+});
+
