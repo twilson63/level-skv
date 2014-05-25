@@ -2,9 +2,16 @@
 
 [![Build Status](https://secure.travis-ci.org/twilson63/level-skv.png)](http://travis-ci.org/twilson63/level-skv)
 
-Simple Key Value DataStore Server
+Simple key-value Datastore Server (skv)
 
-This is a wrapper around levelup using upnode as the server interface.  upnode is a lightweight rpc protocol that has the ability to queue up requests if either side is down for a period of time, then sends the requests with the other end comes back up.  
+skv is a key-value store that has four commands:
+
+* get
+* put
+* del
+* change
+
+It uses the upnode/dnode protocol as a client.
 
 ## server example
 
@@ -16,23 +23,24 @@ skv 4321 --dbname=foo --secret=bar --debug=true
 ## client example
 
 ``` js
-var client = require('upnode');
-client.connect(4321, function (remote) {
-  remote.auth('foo', function (db) {
-    db.put('hello', {foo: 'bar'});
-    db.get('hello', function(err, doc) {
-      console.log(doc);
-    });
-    db.del('hello');
-  });
+require('upnode').connect(4321, function (remote) {
+  remote.auth('foo', ready);
 });
+
+function ready(err, db) {
+  db.put('mydoc', {sync: true}, {content: 'hello world'});
+  db.get('mydoc', function (err, doc) {
+    console.log(doc);
+  });
+}
+
 ```
 
 ## Try the REPL
 
 ``` js
 cd repl
-./skv-client --port=48937 --secret=foo
+./skv-client --port=4321 --secret=foo
 
 ```
 

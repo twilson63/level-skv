@@ -2,48 +2,41 @@ var upnode = require('upnode');
 var db = require('levelup');
 var EventEmitter = require('events').EventEmitter;
 
+// skv
 module.exports = function(dbi, code) {
+  //var args = Array.prototype.slice.call(arguments);
   if (typeof dbi === 'string') { dbi = db(dbi, { valueEncoding: 'json' }); }
   var emitter = new EventEmitter();
 
   var log = function(action) {
     return function (data, cb) {
-      emitter.emit('log', {
+      var tx = {
         action: action,
         data: data,
         date: (new Date()).toString()
-      });
+      };
+      // notify if change
+      if (~['put', 'del'].indexOf(action)) emitter.emit('change', tx);
+      emitter.emit('log', tx);
       if (cb) cb(null, value);
     };
   }
 
   var cmds = {
-    get: function (key, cb) {
-      dbi.get(key, function(err, value) {
-        if (err) { if (cb) cb(err); return; }
-        log('get')({key: key, value: value});
-        if (cb) cb(null, value);
-      })
+    get: function () {
+      var args = Array.prototype.slice.call(arguments);
+      log('get')({ key: args[0]});
+      dbi.get.apply(dbi, args);
     },
-    put: function (key, value, cb) {
-      dbi.put(key, value, function(err) {
-        var tx = {key: key, value: value};
-        if (err) { if (cb) cb(err); return; }
-        log('put')(tx);
-        tx.action = 'put';
-        emitter.emit('change', tx);
-        if (cb) cb(null, tx);
-      });
+    put: function () {
+      var args = Array.prototype.slice.call(arguments);
+      dbi.put.apply(dbi, args);
+      log('put')({ key: args[0], value: args[1]});
     },
-    del: function (key, cb) {
-      dbi.del(key, function (err) {
-        var tx = { key: key };
-        if (err) { if (cb) cb(err); return; }
-        log('del')(tx);
-        tx.action = 'del';
-        emitter.emit('change', tx);
-        if (cb) cb(null, key);
-      });
+    del: function () {
+      var args = Array.prototype.slice.call(arguments);
+      dbi.del.apply(dbi, args);
+      log('del')({ key: args[0]});
     },
     change: function (fn) {
       emitter.on('change', fn);
@@ -51,13 +44,11 @@ module.exports = function(dbi, code) {
   };
   var auth = {
     auth: function(secret, cb) {
-      process.nextTick(function(err) {
-        if (code === secret) {
-          cb(null, cmds);
-        } else {
-          cb({message: 'Authorization Denied!'});
-        }
-      });
+      if (code === secret) {
+        cb(null, cmds);
+      } else {
+        cb({message: 'Authorization Denied!'});
+      }
     }
   };
   // if code is set then add auth check
