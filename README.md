@@ -23,8 +23,8 @@ skv 4321 --dbname=foo --secret=bar --debug=true
 ## client example
 
 ``` js
-require('upnode').connect(4321, function (remote) {
-  remote.auth('foo', ready);
+require('upnode').connect('skv.example.com', 4321, function (remote) {
+  remote.auth('bar', ready);
 });
 
 function ready(err, db) {
