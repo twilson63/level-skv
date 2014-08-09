@@ -4,12 +4,15 @@
 
 Simple key-value Datastore Server (skv)
 
+skv exposes the `levelUp` interface via upnode or dnode.
+
 skv is a key-value store that has four commands:
 
 * get
 * put
 * del
 * change
+* query
 
 It uses the upnode/dnode protocol as a client.
 
@@ -31,6 +34,12 @@ function ready(err, db) {
   db.put('mydoc', {sync: true}, {content: 'hello world'});
   db.get('mydoc', function (err, doc) {
     console.log(doc);
+  });
+  // emit all kv's
+  db.query(function(data) {
+    console.log(data);
+  }, function() {
+    console.log('end');
   });
 }
 

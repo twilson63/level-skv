@@ -21,7 +21,6 @@ module.exports = function(dbi, code) {
       if (cb) cb(null, value);
     };
   }
-
   var cmds = {
     get: function () {
       var args = Array.prototype.slice.call(arguments);
@@ -40,8 +39,18 @@ module.exports = function(dbi, code) {
     },
     change: function (fn) {
       emitter.on('change', fn);
+    },
+    // args is an array of createReadStream arguments
+    // if it is a function then its the emit fn
+    query: function(args, emit, done) {
+      if (!done) { done = emit; }
+      if (typeof(args) === 'function') { emit = args; args = []; }
+      dbi.createReadStream.apply(dbi, args)
+        .on('data', emit)
+        .on('end', done);
     }
   };
+
   var auth = {
     auth: function(secret, cb) {
       if (code === secret) {
