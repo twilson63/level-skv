@@ -1,3 +1,4 @@
+var server = require('health-server');
 var upnode = require('upnode');
 var db = require('levelup');
 var EventEmitter = require('events').EventEmitter;
