@@ -16,8 +16,9 @@
   "author": "Tom",
   "license": "MIT",
   "dependencies": {
-    "levelup": "^0.18.3",
+    "health-server": "^1.0.3",
     "leveldown": "^0.10.2",
+    "levelup": "^0.18.3",
     "minimist": "^0.1.0",
     "upnode": "^0.4.3"
   },
